@@ -21,12 +21,12 @@ dependencies {
     api "org.springframework.boot:spring-boot-starter-jdbc"
     api "org.springframework.boot:spring-boot-starter-json"
 
-    kapt "org.seasar.doma:doma:${doma2Version}"
+    kapt "org.seasar.doma:doma:${domaVersion}"
+    api "org.seasar.doma:doma-core:${domaVersion}"
+    api "org.seasar.doma:doma-slf4j:${domaVersion}"
+    annotationProcessor "org.seasar.doma:doma-processor:${domaVersion}"
     api "org.springframework.data:spring-data-commons"
     api "org.seasar.doma.boot:doma-spring-boot-starter:${domaSpringBootVersion}"
-    api "org.seasar.doma:doma-core:${doma2Version}"
-    api "org.seasar.doma:doma-slf4j:${doma2Version}"
-    annotationProcessor "org.seasar.doma:doma-processor:${doma2Version}"
 
     // thymeleaf
     api "nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect"
@@ -49,9 +49,9 @@ dependencies {
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
 }
 
-test {
-    useJUnitPlatform()
-}
-kotlin {
-    jvmToolchain(21)
-}
+//test {
+//    useJUnitPlatform()
+//}
+//kotlin {
+//    jvmToolchain(21)
+//}

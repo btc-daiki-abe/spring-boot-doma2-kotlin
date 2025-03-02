@@ -20,9 +20,9 @@ object MessageUtils {
    * @param args
    * @return
    */
-  fun getMessage(key: String?, vararg args: Any?): String {
+  fun getMessage(key: String, vararg args: Any): String {
     val locale = LocaleContextHolder.getLocale()
-    return messageSource!!.getMessage(key, args, locale)
+    return messageSource.getMessage(key, args, locale)
   }
 
   /**
@@ -33,8 +33,8 @@ object MessageUtils {
    * @param args
    * @return
    */
-  fun getMessage(key: String?, locale: Locale?, vararg args: Any?): String {
-    return messageSource!!.getMessage(key, args, locale)
+  fun getMessage(key: String, locale: Locale, vararg args: Any?): String {
+    return messageSource.getMessage(key, args, locale)
   }
 
   /**
@@ -43,8 +43,8 @@ object MessageUtils {
    * @param resolvable
    * @return
    */
-  fun getMessage(resolvable: MessageSourceResolvable?): String {
+  fun getMessage(resolvable: MessageSourceResolvable): String {
     val locale = LocaleContextHolder.getLocale()
-    return messageSource!!.getMessage(resolvable, locale)
+    return messageSource.getMessage(resolvable, locale)
   }
 }
