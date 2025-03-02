@@ -1,0 +1,57 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+group = 'com.bigtreetc'
+version = '0.0.1-SNAPSHOT'
+
+kapt {
+    arguments {
+        arg("doma.resources.dir", compileKotlin.getDestinationDirectory())
+    }
+}
+
+dependencies {
+    implementation(project(":sample-common"))
+
+    api "org.springframework.boot:spring-boot-starter-aop"
+    api "org.springframework.boot:spring-boot-starter-validation"
+    api "org.springframework.boot:spring-boot-starter-mail"
+    api "org.springframework.boot:spring-boot-starter-thymeleaf"
+    api "org.springframework.boot:spring-boot-starter-jdbc"
+    api "org.springframework.boot:spring-boot-starter-json"
+
+    kapt "org.seasar.doma:doma:${doma2Version}"
+    api "org.springframework.data:spring-data-commons"
+    api "org.seasar.doma.boot:doma-spring-boot-starter:${domaSpringBootVersion}"
+    api "org.seasar.doma:doma-core:${doma2Version}"
+    api "org.seasar.doma:doma-slf4j:${doma2Version}"
+    annotationProcessor "org.seasar.doma:doma-processor:${doma2Version}"
+
+    // thymeleaf
+    api "nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect"
+
+    // jackson
+    api "com.fasterxml.jackson.dataformat:jackson-dataformat-csv"
+
+    // modelmapper
+    api "org.modelmapper:modelmapper:3.2.0"
+
+    // mysql database
+    api "com.mysql:mysql-connector-j"
+    api "org.flywaydb:flyway-core"
+    api "org.flywaydb:flyway-mysql"
+
+    testImplementation "org.flywaydb.flyway-test-extensions:flyway-spring-test:9.5.0"
+    testImplementation "org.springframework.boot:spring-boot-testcontainers"
+    testImplementation "org.testcontainers:spock"
+    testImplementation "org.testcontainers:mysql"
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+}
+
+test {
+    useJUnitPlatform()
+}
+kotlin {
+    jvmToolchain(21)
+}
